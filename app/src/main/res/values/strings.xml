@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">UTS_MOAPPS</string>
+    <string name="app_name">GameAppUI</string>
+    <string name="search_hint">Search…</string>
+    <string name="top_games">Top Games</string>
+    <string name="our_recommendation">Fall Season Sell</string>
 </resources>
