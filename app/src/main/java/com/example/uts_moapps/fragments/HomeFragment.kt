@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.uts_moapps.R
 import com.example.uts_moapps.RecommendationAdapter
 import com.example.uts_moapps.TopPickAdapter
+import com.example.uts_moapps.model.GameData
 
 class HomeFragment : Fragment() {
 
@@ -24,15 +25,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Top Picks RecyclerView
         val rvTop = view.findViewById<RecyclerView>(R.id.rvTopPicks)
-        rvTop.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        rvTop.adapter = TopPickAdapter(listOf("A", "B", "C"))
+        rvTop.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        rvTop.adapter = TopPickAdapter(GameData.topGames) // 🔹 Panggil data dari GameData
 
-        // Recommendation RecyclerView
         val rvRec = view.findViewById<RecyclerView>(R.id.rvRecommendation)
         rvRec.layoutManager = LinearLayoutManager(requireContext())
-        rvRec.adapter = RecommendationAdapter(listOf("A", "B"))
+        rvRec.adapter = RecommendationAdapter(GameData.recommendedGames) // 🔹 Panggil data rekomendasi
     }
 }

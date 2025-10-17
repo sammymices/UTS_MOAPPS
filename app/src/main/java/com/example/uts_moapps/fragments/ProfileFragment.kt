@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.uts_moapps.R
 
 class ProfileFragment : Fragment() {
@@ -30,12 +31,16 @@ class ProfileFragment : Fragment() {
         menuEditProfile.setOnClickListener {
             Toast.makeText(requireContext(), "Edit Profile clicked", Toast.LENGTH_SHORT).show()
         }
+
         menuNotification.setOnClickListener {
             Toast.makeText(requireContext(), "Notification clicked", Toast.LENGTH_SHORT).show()
         }
+
         menuMyGames.setOnClickListener {
-            Toast.makeText(requireContext(), "My Games clicked", Toast.LENGTH_SHORT).show()
+            // Navigasi ke halaman My Games
+            findNavController().navigate(R.id.action_nav_profile_to_myGamesFragment)
         }
+
         menuAbout.setOnClickListener {
             Toast.makeText(requireContext(), "About clicked", Toast.LENGTH_SHORT).show()
         }

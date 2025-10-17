@@ -20,5 +20,23 @@
         android:id="@+id/nav_profile"
         android:name="com.example.uts_moapps.fragments.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_nav_profile_to_myGamesFragment"
+            app:destination="@id/myGamesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_game_detail"
+        android:name="com.example.uts_moapps.fragments.GameDetailFragment"
+        android:label="Game Detail"
+        tools:layout="@layout/fragment_game_detail" />
+
+    <fragment
+        android:id="@+id/myGamesFragment"
+        android:name="com.example.uts_moapps.fragments.MyGamesFragment"
+        android:label="My Games"
+        tools:layout="@layout/fragment_my_games" />
+
 </navigation>
