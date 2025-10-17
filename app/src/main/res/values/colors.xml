@@ -3,4 +3,5 @@
     <color name="black">#000000</color>
     <color name="primary">#4CAF50</color>
     <color name="surface">#F5F7F6</color>
+    <color name="tosca">#128C7E</color>
 </resources>
