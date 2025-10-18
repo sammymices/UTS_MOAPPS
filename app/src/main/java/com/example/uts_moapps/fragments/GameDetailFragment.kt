@@ -1,5 +1,8 @@
 package com.example.uts_moapps.fragments
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +11,13 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.uts_moapps.MyGamesData
 import com.example.uts_moapps.R
 import com.example.uts_moapps.model.GameModel
+import android.view.animation.AnimationUtils
+import androidx.core.content.ContextCompat
+
 
 class GameDetailFragment : Fragment() {
 
@@ -39,6 +44,8 @@ class GameDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.background_dark)
 
         val btnBack = view.findViewById<ImageButton>(R.id.btnBack)
         btnBack.setOnClickListener {
@@ -69,14 +76,45 @@ class GameDetailFragment : Fragment() {
         }
 
         btnAdd.setOnClickListener {
-            game?.let {
-                MyGamesData.addGame(it)
-                Toast.makeText(
-                    requireContext(),
-                    "${it.title} added to My Games!",
-                    Toast.LENGTH_SHORT
-                ).show()
+            val dialogView = layoutInflater.inflate(R.layout.dialog_confirm_purchase, null)
+            val dialog = Dialog(requireContext())
+            dialog.setContentView(dialogView)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.setCancelable(false)
+
+            // 🔹 Tambahkan animasi fade in
+            val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
+            dialogView.startAnimation(fadeIn)
+
+            val btnYes = dialogView.findViewById<Button>(R.id.btnYes)
+            val btnNo = dialogView.findViewById<Button>(R.id.btnNo)
+            val tvDialogMessage = dialogView.findViewById<TextView>(R.id.tvDialogMessage)
+
+            btnNo.setOnClickListener {
+                // 🔹 Fade out sebelum dismiss
+                val fadeOut = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_out)
+                dialogView.startAnimation(fadeOut)
+                fadeOut.setAnimationListener(object : android.view.animation.Animation.AnimationListener {
+                    override fun onAnimationStart(animation: android.view.animation.Animation?) {}
+                    override fun onAnimationEnd(animation: android.view.animation.Animation?) {
+                        dialog.dismiss()
+                    }
+                    override fun onAnimationRepeat(animation: android.view.animation.Animation?) {}
+                })
             }
+
+            btnYes.setOnClickListener {
+                game?.let {
+                    MyGamesData.addGame(it)
+                }
+
+                // Ubah tampilan ke pesan sukses
+                tvDialogMessage.text = "Game Successfully Purchased"
+                btnYes.visibility = View.GONE
+                btnNo.text = "OK"
+            }
+
+            dialog.show()
         }
     }
 

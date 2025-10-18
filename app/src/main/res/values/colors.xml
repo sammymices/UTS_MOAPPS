@@ -5,4 +5,9 @@
     <color name="surface">#F5F7F6</color>
     <color name="tosca">#128C7E</color>
     <color name="purple_500">#8803fc</color>
+    <color name="background_dark">#0F141A</color>
+    <color name="surface_dark">#1C232A</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0BEC5</color>
+    <color name="accent_purple">#7B61FF</color>
 </resources>
