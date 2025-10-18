@@ -1,38 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:background="#1B1F23"
-android:padding="16dp">
-
-<LinearLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:background="#1B1F23">
 
-    <ImageView
-        android:id="@+id/ivDetailImage"
+    <!-- Header Bar -->
+    <RelativeLayout
+        android:id="@+id/headerBar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:background="@drawable/circle_bg" />
+        android:layout_height="56dp"
+        android:background="#2A2C30"
+        android:paddingHorizontal="12dp"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/tvDetailTitle"
+        <!-- Tombol Back -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_arrow_back"
+            android:contentDescription="Back"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            app:tint="#FFFFFF" />
+
+        <!-- Teks "NEWS" -->
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEWS"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+
+        <!-- Tombol Close -->
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_close"
+            android:contentDescription="Close"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:tint="#FFFFFF" />
+    </RelativeLayout>
+
+    <!-- Konten Scrollable -->
+    <ScrollView
+        android:id="@+id/scrollViewDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_marginTop="12dp" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerBar"
+        android:layout_alignParentBottom="true"
+        android:padding="16dp"
+        android:layout_toStartOf="@+id/navigationPanel">
 
-    <TextView
-        android:id="@+id/tvDetailDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#C0C0C0"
-        android:textSize="15sp"
-        android:layout_marginTop="8dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</LinearLayout>
-</ScrollView>
+            <ImageView
+                android:id="@+id/ivDetailImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/circle_bg"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tvDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvDetailDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#C0C0C0"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Navigasi Panah Atas & Bawah -->
+    <LinearLayout
+        android:id="@+id/navigationPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <ImageButton
+            android:id="@+id/btnScrollUp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/round_button_bg"
+            android:src="@drawable/ic_arrow_up"
+            android:contentDescription="Scroll Up"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btnScrollDown"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_button_bg"
+            android:src="@drawable/ic_arrow_down"
+            app:tint="#FFFFFF"
+            android:contentDescription="Scroll Down" />
+    </LinearLayout>
+
+</RelativeLayout>
