@@ -19,6 +19,7 @@ import android.view.animation.AnimationUtils
 import androidx.core.content.ContextCompat
 
 
+@Suppress("DEPRECATION")
 class GameDetailFragment : Fragment() {
 
     private var game: GameModel? = null

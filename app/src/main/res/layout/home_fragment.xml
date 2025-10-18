@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0B1724"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingTop="40dp">
 
         <!-- 🔹 Top Bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:gravity="center_vertical"
             android:layout_marginBottom="16dp">
 
             <TextView
@@ -23,55 +26,125 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Welcome, [Username]"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_heart" />
+                android:src="@drawable/ic_heart"
+                app:tint="#FFFFFF" />
         </LinearLayout>
 
         <!-- 🔹 Search Bar -->
-        <EditText
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="Search..."
-            android:padding="12dp"
             android:background="@drawable/search_background"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp" />
+            android:layout_marginBottom="24dp"
+            android:paddingHorizontal="12dp">
 
-        <!-- 🔹 Top Picks -->
-        <TextView
+            <ImageView
+                android:id="@+id/icSearch"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/ic_search"
+                app:tint="#AAB2BD" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/icSearch"
+                android:layout_toStartOf="@id/btnClear"
+                android:layout_marginStart="8dp"
+                android:hint="Search..."
+                android:paddingStart="8dp"
+                android:paddingEnd="40dp"
+                android:background="@android:color/transparent"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#AAB2BD"
+                android:inputType="text"
+                android:singleLine="true" />
+
+            <ImageView
+                android:id="@+id/btnClear"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_clear"
+                android:visibility="gone"
+                app:tint="#AAB2BD" />
+        </RelativeLayout>
+
+        <!-- 🔹 Search Result -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/top_games"
+            android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNoResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No game found"
+            android:textColor="#AAB2BD"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginTop="80dp"
+            android:visibility="gone" />
+
+        <!-- 🔹 Banner Besar -->
+        <ImageView
+            android:id="@+id/imgBanner"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/sample_burger_foreground"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/banner_rounded_bg" />
+
+        <!-- 🔹 Top Games (Grid 2 baris Horizontal) -->
+        <TextView
+            android:id="@+id/tvTopGames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top Games"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_marginTop="24dp" />
+            android:layout_marginBottom="8dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTopPicks"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="260dp"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp"
+            android:overScrollMode="never"
             android:layout_marginBottom="24dp" />
 
-        <!-- 🔹 Recommendations -->
+        <!-- 🔹 Fall Season Sell -->
         <TextView
+            android:id="@+id/tvFallSeason"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/our_recommendation"
+            android:text="Fall Season Sell"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRecommendation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp" />
+            android:overScrollMode="never" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

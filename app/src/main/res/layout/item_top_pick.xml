@@ -1,38 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="160dp"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="@drawable/card_background"
-    android:orientation="vertical"
-    android:padding="8dp">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="180dp"
+    android:layout_height="120dp"
+    android:layout_marginEnd="12dp"
+    android:background="@drawable/bg_card_dark"
+    android:clipToOutline="true">
 
+    <!-- 🔹 Thumbnail Gambar -->
     <ImageView
         android:id="@+id/imgGameTop"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/sample_burger_foreground"
-        android:contentDescription="@string/app_name" />
+        android:contentDescription="@string/top_games" />
 
-    <TextView
-        android:id="@+id/tvTitleTop"
+    <!-- 🔹 Overlay Gradasi -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Game Title"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        android:textColor="@android:color/black"
-        android:ellipsize="end"
-        android:maxLines="1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/gradient_overlay_bottom"
+        android:gravity="bottom"
+        android:padding="8dp">
 
-    <TextView
-        android:id="@+id/tvPriceTop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rp 100.000"
-        android:textSize="13sp"
-        android:textColor="@android:color/darker_gray" />
+        <!-- 🔹 Judul dan Harga -->
+        <TextView
+            android:id="@+id/tvTitleTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Title"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvPriceTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rp 250.000"
+            android:textColor="#5AC8FA"
+            android:textSize="12sp" />
+    </LinearLayout>
+</FrameLayout>
