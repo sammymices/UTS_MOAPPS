@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.ViewCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.uts_moapps.R
@@ -18,16 +20,22 @@ class ProfileFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
-        // Menu Item IDs
+        // 🔹 Ambil elemen-elemen dari layout
         val menuEditProfile = view.findViewById<LinearLayout>(R.id.menuEditProfile)
         val menuNotification = view.findViewById<LinearLayout>(R.id.menuNotification)
         val menuMyGames = view.findViewById<LinearLayout>(R.id.menuMyGames)
         val menuAbout = view.findViewById<LinearLayout>(R.id.menuAbout)
-
-        // Button Logout
         val btnSignOut = view.findViewById<View>(R.id.btnSignOut)
+        val profileContainer = view.findViewById<View>(R.id.profileContainer)
 
-        // Listener Menu
+        // 🔹 Terapkan dynamic padding agar aman dari notch / status bar
+        ViewCompat.setOnApplyWindowInsetsListener(profileContainer) { v, insets ->
+            val statusBarHeight = insets.getInsets(androidx.core.view.WindowInsetsCompat.Type.statusBars()).top
+            v.updatePadding(top = statusBarHeight + 24) // tambahkan jarak ekstra 24dp agar tidak terlalu nempel
+            insets
+        }
+
+        // 🔹 Listener untuk setiap menu
         menuEditProfile.setOnClickListener {
             Toast.makeText(requireContext(), "Edit Profile clicked", Toast.LENGTH_SHORT).show()
         }
@@ -37,7 +45,6 @@ class ProfileFragment : Fragment() {
         }
 
         menuMyGames.setOnClickListener {
-            // Navigasi ke halaman My Games
             findNavController().navigate(R.id.action_nav_profile_to_myGamesFragment)
         }
 
@@ -45,7 +52,6 @@ class ProfileFragment : Fragment() {
             Toast.makeText(requireContext(), "About clicked", Toast.LENGTH_SHORT).show()
         }
 
-        // Logout
         btnSignOut.setOnClickListener {
             Toast.makeText(requireContext(), "Signed Out", Toast.LENGTH_SHORT).show()
         }

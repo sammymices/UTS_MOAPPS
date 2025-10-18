@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uts_moapps.R
 import com.example.uts_moapps.TopPickAdapter
+import com.example.uts_moapps.MyGamesData
 
 class MyGamesFragment : Fragment() {
 
@@ -28,7 +30,7 @@ class MyGamesFragment : Fragment() {
         val tvEmpty = view.findViewById<TextView>(R.id.tvEmptyGames)
         val btnBack = view.findViewById<ImageButton>(R.id.btnBack)
 
-        val myGames = com.example.uts_moapps.MyGamesData.getMyGames()
+        val myGames = MyGamesData.getMyGames()
 
         if (myGames.isEmpty()) {
             recyclerView.visibility = View.GONE
@@ -37,11 +39,17 @@ class MyGamesFragment : Fragment() {
             recyclerView.visibility = View.VISIBLE
             tvEmpty.visibility = View.GONE
 
-            recyclerView.layoutManager = GridLayoutManager(requireContext(), 2) // ✅ 2 kolom
-            recyclerView.adapter = TopPickAdapter(myGames)
+            recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+            recyclerView.adapter = TopPickAdapter(myGames).apply {
+                setOnItemClickListener { selectedGame ->
+                    val bundle = Bundle().apply {
+                        putSerializable("game", selectedGame)
+                    }
+                    findNavController().navigate(R.id.nav_game_detail_my_game, bundle)
+                }
+            }
         }
 
-        // ✅ Tombol back
         btnBack.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }

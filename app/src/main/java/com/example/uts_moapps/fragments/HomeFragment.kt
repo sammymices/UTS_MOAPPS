@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,9 +42,6 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
         // 🔹 Inisialisasi komponen
         rvTop = view.findViewById(R.id.rvTopPicks)
         rvRec = view.findViewById(R.id.rvRecommendation)
@@ -55,16 +53,25 @@ class HomeFragment : Fragment() {
         tvTopGames = view.findViewById(R.id.tvTopGames)
         tvFallSeason = view.findViewById(R.id.tvFallSeason)
 
-        // 🔹 Setup RecyclerView
-        val rvTop = view.findViewById<RecyclerView>(R.id.rvTopPicks)
-        val gridLayoutManager =
-            GridLayoutManager(requireContext(), 2, GridLayoutManager.HORIZONTAL, false)
+        // 🔹 Setup RecyclerView: Top Picks
+        val gridLayoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.HORIZONTAL, false)
         rvTop.layoutManager = gridLayoutManager
-        rvTop.adapter = TopPickAdapter(GameData.topGames)
 
+        // ✅ Gunakan adapter TopPickAdapter dengan listener klik
+        rvTop.adapter = TopPickAdapter(GameData.topGames).apply {
+            setOnItemClickListener { selectedGame ->
+                val bundle = Bundle().apply {
+                    putSerializable("game", selectedGame)
+                }
+                findNavController().navigate(R.id.nav_game_detail, bundle)
+            }
+        }
+
+        // 🔹 Setup RecyclerView: Recommendations
         rvRec.layoutManager = LinearLayoutManager(requireContext())
         rvRec.adapter = RecommendationAdapter(GameData.recommendedGames)
 
+        // 🔹 Setup RecyclerView untuk hasil pencarian
         rvSearch.layoutManager = LinearLayoutManager(requireContext())
 
         // 🔹 Tombol clear search
@@ -82,7 +89,7 @@ class HomeFragment : Fragment() {
                 btnClear.visibility = if (query.isNotEmpty()) View.VISIBLE else View.GONE
 
                 if (query.isEmpty()) {
-                    // Kembalikan tampilan normal
+                    // 🔹 Kembalikan tampilan normal
                     rvSearch.visibility = View.GONE
                     tvNoResult.visibility = View.GONE
                     rvTop.visibility = View.VISIBLE
@@ -94,7 +101,7 @@ class HomeFragment : Fragment() {
                     val allGames = GameData.topGames + GameData.recommendedGames
                     val filtered = allGames.filter { it.title.lowercase().contains(query) }
 
-                    // Sembunyikan bagian lain
+                    // 🔹 Sembunyikan bagian lain
                     rvTop.visibility = View.GONE
                     rvRec.visibility = View.GONE
                     imgBanner.visibility = View.GONE

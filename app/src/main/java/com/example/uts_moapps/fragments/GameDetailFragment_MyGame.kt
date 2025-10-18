@@ -16,7 +16,7 @@ import com.example.uts_moapps.R
 import com.example.uts_moapps.model.GameModel
 
 @Suppress("DEPRECATION")
-class GameDetailFragment : Fragment() {
+class GameDetailFragmentMyGame : Fragment() {
 
     private var game: GameModel? = null
 
@@ -44,6 +44,7 @@ class GameDetailFragment : Fragment() {
             ContextCompat.getColor(requireContext(), R.color.background_dark)
 
         val btnBack = view.findViewById<ImageButton>(R.id.btnBack)
+        val btnRefund = view.findViewById<Button>(R.id.btnAddToMyGames)
         val imgGame = view.findViewById<ImageView>(R.id.imgGameDetail)
         val tvTitle = view.findViewById<TextView>(R.id.tvTitleDetail)
         val tvDeveloper = view.findViewById<TextView>(R.id.tvDeveloper)
@@ -53,7 +54,14 @@ class GameDetailFragment : Fragment() {
         val tvGenres = view.findViewById<TextView>(R.id.tvGenres)
         val tvReviews = view.findViewById<TextView>(R.id.tvReviews)
         val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
-        val btnAdd = view.findViewById<Button>(R.id.btnAddToMyGames)
+
+        // 🔹 Hide price (karena sudah dimiliki)
+        tvPrice.visibility = View.GONE
+
+        // 🔹 Ganti tombol jadi Refund
+        btnRefund.text = "REFUND GAME"
+        btnRefund.backgroundTintList =
+            ContextCompat.getColorStateList(requireContext(), R.color.error_red)
 
         game?.apply {
             imgGame.setImageResource(imageResId)
@@ -64,17 +72,16 @@ class GameDetailFragment : Fragment() {
             tvDescription.text = description
             tvGenres.text = "Genres: ${genres.joinToString(", ")}"
             tvReviews.text = "Reviews: $reviews"
-            tvPrice.text = price
         }
 
         btnBack.setOnClickListener { parentFragmentManager.popBackStack() }
 
-        btnAdd.setOnClickListener {
-            showPurchaseDialog()
+        btnRefund.setOnClickListener {
+            showRefundDialog()
         }
     }
 
-    private fun showPurchaseDialog() {
+    private fun showRefundDialog() {
         val dialogView = layoutInflater.inflate(R.layout.dialog_confirm_purchase, null)
         val dialog = Dialog(requireContext())
         dialog.setContentView(dialogView)
@@ -87,31 +94,31 @@ class GameDetailFragment : Fragment() {
         val btnYes = dialogView.findViewById<Button>(R.id.btnYes)
         val btnNo = dialogView.findViewById<Button>(R.id.btnNo)
         val tvDialogMessage = dialogView.findViewById<TextView>(R.id.tvDialogMessage)
-        tvDialogMessage.text = "Do you want to purchase this game?"
+        tvDialogMessage.text = "Are you sure you want to refund this game?"
 
         btnYes.setOnClickListener {
-            game?.let {
-                MyGamesData.addGame(it)
-            }
-
-            tvDialogMessage.text = "Game Successfully Purchased!"
+            game?.let { MyGamesData.removeGame(it) }
+            tvDialogMessage.text = "Game refunded successfully!"
             btnYes.visibility = View.GONE
             btnNo.text = "OK"
+
+            btnNo.setOnClickListener {
+                dialog.dismiss()
+                parentFragmentManager.popBackStack() // kembali ke MyGames
+            }
         }
 
-        btnNo.setOnClickListener {
-            dialog.dismiss()
-        }
+        btnNo.setOnClickListener { dialog.dismiss() }
 
         dialog.show()
     }
 
     companion object {
-        fun newInstance(game: GameModel): GameDetailFragment {
-            val fragment = GameDetailFragment()
-            val bundle = Bundle()
-            bundle.putSerializable("game", game)
-            fragment.arguments = bundle
+        fun newInstance(game: GameModel): GameDetailFragmentMyGame {
+            val fragment = GameDetailFragmentMyGame()
+            val args = Bundle()
+            args.putSerializable("game", game)
+            fragment.arguments = args
             return fragment
         }
     }

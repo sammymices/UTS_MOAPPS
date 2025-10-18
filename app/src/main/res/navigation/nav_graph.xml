@@ -50,6 +50,14 @@
         android:label="My Games"
         tools:layout="@layout/fragment_my_games" />
 
+    <!-- GAME DETAIL (MY GAMES VERSION) -->
+    <fragment
+        android:id="@+id/nav_game_detail_my_game"
+        android:name="com.example.uts_moapps.fragments.GameDetailFragmentMyGame"
+        android:label="Game Detail (My Game)"
+        tools:layout="@layout/fragment_game_detail" />
+
+
     <!-- NEWS DETAIL -->
     <fragment
         android:id="@+id/newsDetailFragment"

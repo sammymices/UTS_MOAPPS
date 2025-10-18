@@ -1,17 +1,21 @@
 package com.example.uts_moapps
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uts_moapps.model.GameModel
 
 class TopPickAdapter(private val items: List<GameModel>) :
     RecyclerView.Adapter<TopPickAdapter.ViewHolder>() {
+
+    private var onItemClickListener: ((GameModel) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (GameModel) -> Unit) {
+        onItemClickListener = listener
+    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imgGame: ImageView = view.findViewById(R.id.imgGameTop)
@@ -32,11 +36,8 @@ class TopPickAdapter(private val items: List<GameModel>) :
         holder.tvPrice.text = game.price
 
         holder.itemView.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putSerializable("game", game)
-            it.findNavController().navigate(R.id.nav_game_detail, bundle)
+            onItemClickListener?.invoke(game)
         }
-
     }
 
     override fun getItemCount(): Int = items.size
