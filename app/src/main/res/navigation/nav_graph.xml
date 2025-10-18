@@ -4,18 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/nav_home">
 
+    <!-- HOME -->
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.uts_moapps.fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment" />
 
+    <!-- NEWS -->
     <fragment
         android:id="@+id/nav_news"
         android:name="com.example.uts_moapps.fragments.NewsFragment"
         android:label="News"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news">
 
+        <!-- Arahkan ke halaman detail berita -->
+        <action
+            android:id="@+id/action_navNews_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+
+    <!-- PROFILE -->
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.example.uts_moapps.fragments.ProfileFragment"
@@ -27,16 +36,37 @@
             app:destination="@id/myGamesFragment" />
     </fragment>
 
+    <!-- GAME DETAIL -->
     <fragment
         android:id="@+id/nav_game_detail"
         android:name="com.example.uts_moapps.fragments.GameDetailFragment"
         android:label="Game Detail"
         tools:layout="@layout/fragment_game_detail" />
 
+    <!-- MY GAMES -->
     <fragment
         android:id="@+id/myGamesFragment"
         android:name="com.example.uts_moapps.fragments.MyGamesFragment"
         android:label="My Games"
         tools:layout="@layout/fragment_my_games" />
+
+    <!-- NEWS DETAIL -->
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.example.uts_moapps.fragments.NewsDetailFragment"
+        android:label="News Detail"
+        tools:layout="@layout/fragment_news_detail">
+
+        <!-- Argumen yang diteruskan -->
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="imageRes"
+            app:argType="integer" />
+    </fragment>
 
 </navigation>
