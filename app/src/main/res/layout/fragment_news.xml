@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#1B1C1F"
-    android:padding="8dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="36dp"
+    android:paddingBottom="8dp"
     tools:context=".fragments.NewsFragment">
 
     <!-- App bar sederhana -->
@@ -29,7 +33,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@android:drawable/ic_menu_search"
-            android:tint="@android:color/white" />
+            app:tint="@color/white" />
     </LinearLayout>
 
     <!-- Search bar -->
@@ -39,7 +43,7 @@
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bg_search"
-        android:hint="Search news..."
+        android:hint="Search News..."
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:textColorHint="#AAA"
