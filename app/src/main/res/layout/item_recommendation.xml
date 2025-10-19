@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:padding="8dp">
 
-        <!-- 🔹 Thumbnail -->
+        <!-- Thumbnail -->
         <ImageView
             android:id="@+id/imgGameRec"
             android:layout_width="100dp"
@@ -24,7 +24,7 @@
             android:background="@drawable/bg_card_dark"
             android:clipToOutline="true" />
 
-        <!-- 🔹 Info game -->
+        <!-- Info game -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"

@@ -9,7 +9,7 @@
     android:background="@color/background_dark"
     tools:context=".fragments.AboutUsFragment">
 
-    <!-- 🔹 Toolbar dengan tombol back + judul -->
+    <!--  Toolbar dengan tombol back + judul -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             app:titleCentered="false" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- 🔹 Konten Grid -->
+    <!--  Konten Grid -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -48,7 +48,7 @@
             android:columnOrderPreserved="false"
             android:useDefaultMargins="true">
 
-            <!-- 🔸 Card 1 -->
+            <!--  Card 1 -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
-            <!-- 🔸 Card 2 -->
+            <!--  Card 2 -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
-            <!-- 🔸 Card 3 -->
+            <!--  Card 3 -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
-            <!-- 🔸 Card 4 -->
+            <!--  Card 4 -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

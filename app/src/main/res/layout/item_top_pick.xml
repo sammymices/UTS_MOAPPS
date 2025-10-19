@@ -6,7 +6,7 @@
     android:background="@drawable/bg_card_dark"
     android:clipToOutline="true">
 
-    <!-- 🔹 Thumbnail Gambar -->
+    <!-- Thumbnail Gambar -->
     <ImageView
         android:id="@+id/imgGameTop"
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
         android:scaleType="centerCrop"
         android:contentDescription="@string/top_games" />
 
-    <!-- 🔹 Overlay Gradasi -->
+    <!-- Overlay Gradasi -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,7 +23,7 @@
         android:gravity="bottom"
         android:padding="8dp">
 
-        <!-- 🔹 Judul dan Harga -->
+        <!-- Judul dan Harga -->
         <TextView
             android:id="@+id/tvTitleTop"
             android:layout_width="wrap_content"

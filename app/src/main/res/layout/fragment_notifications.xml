@@ -9,7 +9,7 @@
     android:background="@color/background_dark"
     tools:context=".fragments.NotificationsFragment">
 
-    <!-- 🔹 Toolbar dengan tombol Back dan judul -->
+    <!-- Toolbar dengan tombol Back dan judul -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             app:contentInsetStart="0dp" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- 🔹 RecyclerView untuk daftar notifikasi -->
+    <!-- RecyclerView untuk daftar notifikasi -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNotifications"
         android:layout_width="match_parent"

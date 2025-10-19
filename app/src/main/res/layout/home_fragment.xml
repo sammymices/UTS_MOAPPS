@@ -13,7 +13,7 @@
         android:paddingHorizontal="16dp"
         android:paddingTop="40dp">
 
-        <!-- 🔹 Top Bar -->
+        <!-- Top Bar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 app:tint="#FFFFFF" />
         </LinearLayout>
 
-        <!-- 🔹 Search Bar -->
+        <!-- Search Bar -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -81,7 +81,7 @@
                 app:tint="#AAB2BD" />
         </RelativeLayout>
 
-        <!-- 🔹 Search Result -->
+        <!-- Search Result -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSearchResult"
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:layout_marginTop="80dp"
             android:visibility="gone" />
 
-        <!-- 🔹 Banner Besar -->
+        <!-- Banner Besar -->
         <ImageView
             android:id="@+id/imgBanner"
             android:layout_width="match_parent"
@@ -110,7 +110,7 @@
             android:layout_marginBottom="24dp"
             android:background="@drawable/banner_rounded_bg" />
 
-        <!-- 🔹 Top Games (Grid 2 baris Horizontal) -->
+        <!-- Top Games (Grid 2 baris Horizontal) -->
         <TextView
             android:id="@+id/tvTopGames"
             android:layout_width="match_parent"
@@ -129,7 +129,7 @@
             android:overScrollMode="never"
             android:layout_marginBottom="24dp" />
 
-        <!-- 🔹 Fall Season Sell -->
+        <!-- Fall Season Sell -->
         <TextView
             android:id="@+id/tvFallSeason"
             android:layout_width="match_parent"

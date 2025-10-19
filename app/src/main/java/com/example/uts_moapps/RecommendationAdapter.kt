@@ -32,7 +32,7 @@ class RecommendationAdapter(private val gameList: List<GameModel>) :
         holder.tvTitle.text = game.title
         holder.tvPrice.text = game.price
 
-        // ✅ Klik item untuk buka detail
+        // Klik item untuk buka detail
         holder.itemView.setOnClickListener {
             val bundle = Bundle()
             bundle.putSerializable("game", game)
