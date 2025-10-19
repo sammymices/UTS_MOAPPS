@@ -65,14 +65,15 @@
                     android:layout_height="90dp"
                     android:layout_marginBottom="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_burger_foreground"
+                    android:src="@drawable/sammy"
                     android:background="@drawable/bg_circle_mask"
                     android:clipToOutline="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama 1"
+                    android:text="Samgar Sammy Napitulu"
+                    android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:textSize="16sp" />
@@ -80,14 +81,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00000000001"
+                    android:gravity="center"
+                    android:text="00000109993"
                     android:textColor="@android:color/white"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="[Role]"
+                    android:gravity="center"
+                    android:text="All Rounder"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -109,14 +112,15 @@
                     android:layout_height="90dp"
                     android:layout_marginBottom="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_burger_foreground"
+                    android:src="@drawable/max"
                     android:background="@drawable/bg_circle_mask"
                     android:clipToOutline="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama 2"
+                    android:text="Maxell Nathanael"
+                    android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:textSize="16sp" />
@@ -124,14 +128,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00000000002"
+                    android:text="00000083239"
+                    android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="[Role]"
+                    android:gravity="center"
+                    android:text="Membuat Halaman News dan MyGames"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -153,14 +159,15 @@
                     android:layout_height="90dp"
                     android:layout_marginBottom="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_burger_foreground"
+                    android:src="@drawable/alif"
                     android:background="@drawable/bg_circle_mask"
                     android:clipToOutline="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama 3"
+                    android:text="Alief Nurfaiz Widyatmoko"
+                    android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:textSize="16sp" />
@@ -168,14 +175,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00000000003"
+                    android:gravity="center"
+                    android:text="00000087631"
                     android:textColor="@android:color/white"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="[Role]"
+                    android:gravity="center"
+                    android:text="Machine Learning Prep dan Fixing"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -197,14 +206,15 @@
                     android:layout_height="90dp"
                     android:layout_marginBottom="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sample_burger_foreground"
+                    android:src="@drawable/troy"
                     android:background="@drawable/bg_circle_mask"
                     android:clipToOutline="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nama 4"
+                    android:text="Troy Amadeo Tania"
+                    android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:textSize="16sp" />
@@ -212,14 +222,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00000000004"
+                    android:gravity="center"
+                    android:text="00000096782"
                     android:textColor="@android:color/white"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="[Role]"
+                    android:gravity="center"
+                    android:text="Cari Asset dan Coder"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="13sp" />
             </LinearLayout>

@@ -11,6 +11,6 @@
     <color name="text_secondary">#B0BEC5</color>
     <color name="accent_purple">#7B61FF</color>
     <color name="gray">#36454F</color>
-    <color name="error_red">#E53935</color> <!-- merah khas untuk tombol refund -->
+    <color name="error_red">#E53935</color>
 
 </resources>

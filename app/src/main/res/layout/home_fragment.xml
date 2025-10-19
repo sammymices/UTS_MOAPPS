@@ -105,7 +105,7 @@
             android:id="@+id/imgBanner"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:src="@drawable/sample_burger_foreground"
+            android:src="@drawable/halamanutama"
             android:scaleType="centerCrop"
             android:layout_marginBottom="24dp"
             android:background="@drawable/banner_rounded_bg" />
