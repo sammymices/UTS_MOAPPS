@@ -41,7 +41,7 @@ class ProfileFragment : Fragment() {
         }
 
         menuNotification.setOnClickListener {
-            Toast.makeText(requireContext(), "Notification clicked", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_nav_profile_to_notificationsFragment)
         }
 
         menuMyGames.setOnClickListener {
@@ -49,7 +49,7 @@ class ProfileFragment : Fragment() {
         }
 
         menuAbout.setOnClickListener {
-            Toast.makeText(requireContext(), "About clicked", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_nav_profile_to_aboutUsFragment)
         }
 
         btnSignOut.setOnClickListener {

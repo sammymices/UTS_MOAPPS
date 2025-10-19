@@ -34,7 +34,30 @@
         <action
             android:id="@+id/action_nav_profile_to_myGamesFragment"
             app:destination="@id/myGamesFragment" />
+
+        <!-- Tambahkan ini -->
+        <action
+            android:id="@+id/action_nav_profile_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+
+        <action
+            android:id="@+id/action_nav_profile_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
     </fragment>
+
+    <!-- 🔔 NOTIFICATIONS -->
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.uts_moapps.fragments.NotificationsFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <!-- ℹ️ ABOUT US -->
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.uts_moapps.fragments.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us" />
 
     <!-- GAME DETAIL -->
     <fragment
