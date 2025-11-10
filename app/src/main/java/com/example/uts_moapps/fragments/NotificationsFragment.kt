@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uts_moapps.R
 import com.example.uts_moapps.model.NotificationAdapter
-import com.example.uts_moapps.model.NotificationData
+import com.example.uts_moapps.model.NotificationCenter
 import com.google.android.material.appbar.MaterialToolbar
 
 class NotificationsFragment : Fragment() {
@@ -21,25 +21,18 @@ class NotificationsFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_notifications, container, false)
 
-        // 🔹 Setup toolbar
         val toolbar = view.findViewById<MaterialToolbar>(R.id.toolbarNotifications)
-        toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp() // tombol back
-        }
+        toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
-        // 🔹 Setup RecyclerView
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvNotifications)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
-        // Dummy data
-        val notifications = listOf(
-            NotificationData("Le_Monke's profile", "\"Halo, kamu lagi ngapain?\"", R.drawable.ic_profile),
-            NotificationData("Gaben Official", "Your refund for Half-Life 3 has been processed.", R.drawable.ic_profile),
-            NotificationData("Steam News", "Halloween Sale starts tomorrow!", R.drawable.ic_profile)
-        )
-
-        val adapter = NotificationAdapter(notifications)
+        val adapter = NotificationAdapter(mutableListOf())
         recyclerView.adapter = adapter
+
+        // Observe perubahan data dari NotificationCenter
+        NotificationCenter.notifications.observe(viewLifecycleOwner) { list ->
+            adapter.submit(list)
+        }
 
         return view
     }
