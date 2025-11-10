@@ -32,6 +32,10 @@
         tools:layout="@layout/fragment_profile">
 
         <action
+            android:id="@+id/action_nav_profile_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+
+        <action
             android:id="@+id/action_nav_profile_to_myGamesFragment"
             app:destination="@id/myGamesFragment" />
 
@@ -44,6 +48,12 @@
             android:id="@+id/action_nav_profile_to_aboutUsFragment"
             app:destination="@id/aboutUsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.uts_moapps.fragments.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
 
     <!-- 🔔 NOTIFICATIONS -->
     <fragment
@@ -99,5 +109,6 @@
             android:name="imageRes"
             app:argType="integer" />
     </fragment>
+
 
 </navigation>
