@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UTS_MOAPPS">
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <!-- FILEPROVIDER -->
         <provider
@@ -36,7 +36,7 @@
         </provider>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
